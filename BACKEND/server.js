@@ -3,6 +3,8 @@ const express = require('express');
 const cors = require('cors');
 const connectDB = require('./config/db');
 const autenticacionRoutes = require('./routes/autenticacionRoutes');
+const cursoRoutes = require('./routes/cursoRoutes');
+const tareaRoutes = require('./routes/tareaRoutes');
 
 connectDB();
 
@@ -12,6 +14,8 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/api/autenticacion', autenticacionRoutes);
+app.use('/api/cursos', cursoRoutes);
+app.use('/api/tareas', tareaRoutes);
 
 app.get('/', (req, res) => {
   res.json({ message: '👌 ClassTrack API funcionando' });
